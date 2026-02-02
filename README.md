@@ -45,7 +45,6 @@ and how responsibilities are separated.
 **File:** `Package Diagram.drawio.png`
 
 ![Package Diagram](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Package%20Diagram.drawio%20.png)
-
 ---
 ## 2. Class Diagram
 
@@ -72,6 +71,9 @@ It shows entities, their attributes, methods, and relationships.
 - One **Place** can have many **Amenities**
 
 **File:** 
+
+![Package Diagram](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Class%20diagram.drawio%20(2).png)
+
 
 ---
 
