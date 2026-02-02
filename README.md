@@ -72,7 +72,7 @@ It shows entities, their attributes, methods, and relationships.
 
 **File:** 
 
-![Package Diagram](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Class%20diagram.drawio%20(2).png)
+![Class Diagram](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Class%20diagram.drawio%20(2).png)
 
 
 ---
@@ -102,6 +102,8 @@ A user registers a new account.
 - Database (Persistence Layer)
 
 **File:**
+![User Registration]( https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/User%20rigistration.drawio.png) <img width="468" height="44" alt="image" src="https://github.com/user-attachments/assets/b8a31ab3-673a-4d95-a173-c208094a8e62" />
+
 
 ---
 
@@ -124,6 +126,7 @@ A user creates a new place listing.
 - Database
 
 **File:** 
+![Place Creation]( https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/User%20rigistration.drawio.png )<img width="468" height="44" alt="image" src="https://github.com/user-attachments/assets/c69fda31-9daf-4b3a-8cc7-a19505373acb" />
 
 ---
 
