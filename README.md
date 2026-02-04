@@ -157,7 +157,7 @@ Flow
 
 - Database (Repository)
 
-File: [part1/fetching sequence diagram with white bg.png](https://github.com/laradreamer79/holbertonschool-hbnb/blob/15f9fbcdb8b967a7d19c265146b88f9c6e668d18/part1/fetching%20sequence%20diagram%20with%20white%20bg.png)
+File: [part1/fetching sequence diagram with white bg.png](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/fetching%20sequence%20diagram%20with%20white%20bg.png)
 
 ---
 
