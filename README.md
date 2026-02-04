@@ -185,7 +185,7 @@ A user submits a review for a specific place.
 - Business Logic
 - Database
 
-File: part1/review sequence diagram - white bg.png
+File: [part1/review sequence diagram - white bg.png](https://github.com/laradreamer79/holbertonschool-hbnb/blob/add242be00dddc9162aa0ec18d28b81a19b7df7c/part1/review%20sequence%20diagram%20-%20white%20bg.png)
 
 ---
 
