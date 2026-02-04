@@ -89,17 +89,17 @@ Sequence diagrams describe how components interact over time to handle API reque
 A user registers a new account.
 
 ### Flow
-1. User sends `POST /users`
-2. API forwards request to Business Logic
+1. User sends `data (user)`
+2. API forwards request to Business Logic to register user
 3. Business Logic saves user data in the Database
 4. Database confirms creation
 5. API returns `201 Created` response
 
 ### Layers Involved
 - User
-- API (Presentation Layer)
+- API
 - Business Logic
-- Database (Persistence Layer)
+- Database
 
 **File:**
  
@@ -113,10 +113,10 @@ A user registers a new account.
 A user creates a new place listing.
 
 ### Flow
-1. User sends `POST /places`
+1. User sends `data (place)`
 2. API calls Business Logic
-3. Business Logic saves place data
-4. Database confirms creation
+3. Business Logic creates place
+4. Database saves creation
 5. API returns `201 Created`
 
 ### Layers Involved
@@ -128,6 +128,64 @@ A user creates a new place listing.
 **File:**
 
 ![Place Creation]( https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/User%20rigistration.drawio.png )
+
+---
+
+3.3 Fetching a List of Places
+Use Case
+A user requests a list of all available places, potentially applying filters.
+
+Flow
+1. User sends a Request (list of places) to the API.
+
+2. API calls the Business Logic layer to Filter Places based on criteria.
+
+3. Business Logic communicates with the Database to Fetch places.
+
+4. Database retrieves the data and sends Gather places back to the Business Logic.
+
+5. Business Logic processes the data and sends Return list to the API.
+
+6. API returns a Receive list (success) response to the user.
+
+### Layers Involved
+- User
+
+- API (Place)
+
+- Business Logic (Place Service)
+
+- Database (Repository)
+
+File: [part1/fetching sequence diagram with white bg.png](https://github.com/laradreamer79/holbertonschool-hbnb/blob/15f9fbcdb8b967a7d19c265146b88f9c6e668d18/part1/fetching%20sequence%20diagram%20with%20white%20bg.png)
+
+---
+
+## 3.4 Review Submission
+
+### Use Case
+A user submits a review for a specific place.
+
+### Flow
+1. User sends a Post review request to the API.
+
+2. API forwards the request to the Business Logic to Create review.
+
+3. Business Logic instructs the Database to Save review.
+
+4. Database confirms the action with a Review created message.
+
+5. Business Logic confirms completion to the API by sending Return review.
+
+6. API delivers a Success response back to the user.
+
+### Layers Involved
+- User
+- API
+- Business Logic
+- Database
+
+File: [review sequence diagram - white bg.png](https://github.com/laradreamer79/holbertonschool-hbnb/blob/15f9fbcdb8b967a7d19c265146b88f9c6e668d18/part1/review%20sequence%20diagram%20-%20white%20bg.png)
 
 ---
 
