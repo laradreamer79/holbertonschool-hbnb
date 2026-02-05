@@ -46,7 +46,7 @@ and how responsibilities are separated.
 
 **File:** `Package Diagram.drawio.png`
 
-![Package Diagram](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Package%20Diagram.drawio%20.png)
+![Package Diagram](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/package%20diagram.png)
 ---
 ## 2. Class Diagram
 
@@ -74,7 +74,7 @@ It shows entities, their attributes, methods, and relationships.
 
 **File:** 
 
-![Class Diagram](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Class%20Diagram.drawio%20(3).png)
+![Class Diagram](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/class%20diagram%20updated.png)
 
 
 ---
@@ -105,7 +105,7 @@ A user registers a new account.
 
 **File:**
  
-![User Registration]( https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/User%20rigistration.drawio.png)
+![User Registration](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/user%20registration%20sequence%20diagram.png)
 
 ---
 
@@ -129,7 +129,7 @@ A user creates a new place listing.
 
 **File:**
 
-![Place Creation]( https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/User%20rigistration.drawio.png )
+![Place Creation](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/place%20creation%20sequence%20diagram.png)
 
 ---
 
@@ -151,7 +151,7 @@ Flow
 - Business Logic
 - Database
 
-File: [part1/fetching sequence diagram with white bg.png](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/fetching%20sequence%20diagram%20with%20white%20bg.png)
+![review submession](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/fetching%20a%20list%20of%20places%20sequence%20diagram.png)
 
 ---
 
@@ -174,8 +174,7 @@ A user submits a review for a specific place.
 - Business Logic
 - Database
 
-File: [part1/review sequence diagram - white bg.png](https://github.com/laradreamer79/holbertonschool-hbnb/blob/add242be00dddc9162aa0ec18d28b81a19b7df7c/part1/review%20sequence%20diagram%20-%20white%20bg.png)
-
+![review submession](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Review%20submission%20sequence%20diagram.png)
 ---
 
 ## Design Considerations
