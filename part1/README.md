@@ -4,6 +4,20 @@ The HBnB Evolution project is a simplified version of an AirBnB-style platform d
 
 ---
 
+## 📑 Table of Contents
+
+- [Diagrams Overview](##-Diagrams-Overview)
+  - [Package Diagram](##-Package-Diagram)
+  - [Class Diagram](##-Class-Diagram)
+  - [Sequence Diagrams](##Sequence-Diagrams)
+    - [User Registration](###User-Registration)
+    - [Place Creation](###Place-Creation)
+    - [Fetching a List of Places](##Fetching-a-List-of-Places)
+    - [Review Submission](##-Review-Submission)
+- [Authors](##Authors)
+  
+---
+
 ## Diagrams Overview
 
 This project includes the following UML diagrams:
@@ -47,7 +61,11 @@ and how responsibilities are separated.
 **File:** `Package Diagram.drawio.png`
 
 ![Package Diagram](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Package%20Diagram%207.drawio.png)
+
+
 ---
+
+
 ## 2. Class Diagram
 
 ### Purpose
@@ -85,7 +103,7 @@ Sequence diagrams describe how components interact over time to handle API reque
 
 ---
 
-### User Registration Sequence Diagram
+### User Registration
 
 ### Use Case
 A user registers a new account.
@@ -109,7 +127,7 @@ A user registers a new account.
 
 ---
 
-### Place Creation Sequence Diagram
+### Place Creation
 
 ### Use Case
 A user creates a new place listing.
@@ -176,6 +194,8 @@ A user submits a review for a specific place.
 - Database
 
 ![review submession](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Review%20submission%20sequence%20diagram.png)
+
+
 ---
 
 ## Design Considerations
@@ -194,3 +214,11 @@ These diagrams provide a clear overview of:
 - System **behavior** (Sequence diagrams)
 
 They collectively explain how the HBnB application is designed and how data flows across its layers.
+
+---
+
+## Authors:
+- Lara Alzannan
+- Afnan Alfaidi
+
+---
