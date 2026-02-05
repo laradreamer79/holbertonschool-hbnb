@@ -14,6 +14,8 @@ The HBnB Evolution project is a simplified version of an AirBnB-style platform d
     - [Place Creation](#place-creation)
     - [Fetching a List of Places](#fetching-a-list-of-places)
     - [Review Submission](#-review-submission)
+- [Design Considerations](#design-considerations)
+- [Conclusion](#conclusion)
 - [Authors](#authors)
   
 ---
@@ -58,7 +60,7 @@ and how responsibilities are separated.
 - Uses the **Facade Pattern**
 - Ensures separation of concerns and maintainability
 
-**File:** `Package Diagram.drawio.png`
+**File:** `Package Diagram 7.drawio.png`
 
 ![Package Diagram](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Package%20Diagram%207.drawio.png)
 
@@ -90,7 +92,7 @@ It shows entities, their attributes, methods, and relationships.
 - One **Place** can have many **Reviews**
 - Many **Places** can have many **Amenities**
 
-**File:** 
+**File:** `Class Diagram.drawio (6).png`
 
 ![Package Diagram]( https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Class%20Diagram.drawio%20(6).png)
 
@@ -99,9 +101,8 @@ It shows entities, their attributes, methods, and relationships.
 
 ## 3. Sequence Diagrams
 
-Sequence diagrams describe how components interact over time to handle API requests.
-
----
+Sequence diagrams illustrate the dynamic interaction between system components over time.  
+They show how requests flow through the Presentation, Business Logic, and Persistence layers, detailing method calls, data processing, and responses for each use case.
 
 ### User Registration
 
@@ -121,7 +122,7 @@ A user registers a new account.
 - Business Logic
 - Database
 
-**File:**
+**File:** `part1/user registration sequence diagram.png`
  
 ![User Registration](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/user%20registration%20sequence%20diagram.png)
 
@@ -145,7 +146,7 @@ A user creates a new place listing.
 - Business Logic
 - Database
 
-**File:**
+**File:** `place creation sequence diagram.png`
 
 ![Place Creation](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/place%20creation%20sequence%20diagram.png)
 
@@ -170,6 +171,8 @@ A user requests a list of all available places.
 - Business Logic
 - Database
 
+**File:** `fetching a list of places sequence diagram.png`
+
 ![review submession](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/fetching%20a%20list%20of%20places%20sequence%20diagram.png)
 
 ---
@@ -192,6 +195,8 @@ A user submits a review for a specific place.
 - API
 - Business Logic
 - Database
+
+  **File:** `Review submission sequence diagram.png`
 
 ![review submession](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Review%20submission%20sequence%20diagram.png)
 
