@@ -74,7 +74,7 @@ It shows entities, their attributes, methods, and relationships.
 
 **File:** 
 
-![Class Diagram](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Class%20Diagram.drawio%20(6).png)
+![Package Diagram]( https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Class%20Diagram.drawio%20(6).png)
 
 
 ---
