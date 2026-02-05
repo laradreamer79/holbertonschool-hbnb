@@ -1,23 +1,25 @@
 # HBnB UML Diagrams 
 
-The HBnB Evolution project is a simplified version of an AirBnB-style platform designed to demonstrate robust software engineering principles. This documentation outlines Part one, which focuses on the architectural design and system modeling that serve as the foundation for the application's development.
- The layered architecture —comprising Presentation, Business Logic, and Persistence layers- ensures a solid technical foundation before moving into the actual coding phase. By utilizing UML modeling, the project maps out complex interactions between users, property listings, reviews, and amenities, while ensuring data integrity through a centralized Facade pattern.
+The HBnB Evolution project is a simplified version of an AirBnB-style platform designed to demonstrate robust software engineering principles. This documentation outlines Part one, which focuses on the architectural design and system modeling that serve as the foundation for the application's development. The layered architecture —comprising Presentation, Business Logic, and Persistence layers- ensures a solid technical foundation before moving into the actual coding phase. By utilizing UML modeling, the project maps out complex interactions between users, property listings, reviews, and amenities, while ensuring data integrity through a centralized Facade pattern.
+
 ---
 
 ## Diagrams Overview
 
 This project includes the following UML diagrams:
 
-1. Package Diagram  
-2. Class Diagram
-3. Sequence Diagrams  
-   3.1 User Registration  
-   3.2 Place Creation
-   3.3 Review Submission
-   3.4 Fetching a List of Places  
+1. **Package Diagram**  
+2. **Class Diagram**
+3. **Sequence Diagrams :**  
+     - User Registration
+     - Place Creation
+     - Review Submission
+     - Fetching a List of Places
 
-Each diagram explains a specific aspect of the system design and behavior.
----
+   ----
+
+## Each diagram explains a specific aspect of the system design and behavior.
+
 ## 1. Package Diagram
 
 ### Purpose
