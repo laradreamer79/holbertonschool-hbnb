@@ -122,7 +122,7 @@ A user registers a new account.
 - Business Logic
 - Database
 
-**File:** `part1/user registration sequence diagram.png`
+**File:** `user registration sequence diagram.png`
  
 ![User Registration](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/user%20registration%20sequence%20diagram.png)
 
