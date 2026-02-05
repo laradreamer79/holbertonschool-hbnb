@@ -46,7 +46,7 @@ and how responsibilities are separated.
 
 **File:** `Package Diagram.drawio.png`
 
-![Package Diagram](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/package%20diagram.png)
+![Package Diagram](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Package%20Diagram%207.drawio.png)
 ---
 ## 2. Class Diagram
 
@@ -74,7 +74,7 @@ It shows entities, their attributes, methods, and relationships.
 
 **File:** 
 
-![Class Diagram](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/class%20diagram%20updated.png)
+![Class Diagram]([https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/class%20diagram%20updated.png](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/Class%20Diagram.drawio%20(6).png)
 
 
 ---
