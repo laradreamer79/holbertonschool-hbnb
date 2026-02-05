@@ -6,15 +6,15 @@ The HBnB Evolution project is a simplified version of an AirBnB-style platform d
 
 ## 📑 Table of Contents
 
-- [Diagrams Overview](##-Diagrams-Overview)
-  - [Package Diagram](##-Package-Diagram)
-  - [Class Diagram](##-Class-Diagram)
-  - [Sequence Diagrams](##Sequence-Diagrams)
-    - [User Registration](###User-Registration)
-    - [Place Creation](###Place-Creation)
-    - [Fetching a List of Places](##Fetching-a-List-of-Places)
-    - [Review Submission](##-Review-Submission)
-- [Authors](##Authors)
+- [Diagrams Overview](#-Diagrams-Overview)
+  - [Package Diagram](#1-Package-Diagram)
+  - [Class Diagram](#2-Class-Diagram)
+  - [Sequence Diagrams](#3-Sequence-Diagrams)
+    - [User Registration](#User-Registration)
+    - [Place Creation](#Place-Creation)
+    - [Fetching a List of Places](#Fetching-a-List-of-Places)
+    - [Review Submission](#-Review-Submission)
+- [Authors](#Authors)
   
 ---
 
