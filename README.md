@@ -1,8 +1,7 @@
 # HBnB UML Diagrams 
 
-This document provides UML diagrams that describe the structure and behavior of the HBnB application.
-The diagrams focus on the **Business Logic layer**, its interaction with other layers, and the overall system architecture.
-
+The HBnB Evolution project is a simplified version of an AirBnB-style platform designed to demonstrate robust software engineering principles. This documentation outlines Part one, which focuses on the architectural design and system modeling that serve as the foundation for the application's development.
+ The layered architecture —comprising Presentation, Business Logic, and Persistence layers- ensures a solid technical foundation before moving into the actual coding phase. By utilizing UML modeling, the project maps out complex interactions between users, property listings, reviews, and amenities, while ensuring data integrity through a centralized Facade pattern.
 ---
 
 ## Diagrams Overview
@@ -13,10 +12,11 @@ This project includes the following UML diagrams:
 2. Class Diagram
 3. Sequence Diagrams  
    3.1 User Registration  
-   3.2 Place Creation  
+   3.2 Place Creation
+   3.3 Review Submission
+   3.4 Fetching a List of Places  
 
 Each diagram explains a specific aspect of the system design and behavior.
-Class Diagram
 ---
 ## 1. Package Diagram
 
@@ -68,7 +68,7 @@ It shows entities, their attributes, methods, and relationships.
 - One **User** can own many **Places**
 - One **User** can write many **Reviews**
 - One **Place** can have many **Reviews**
-- One **Place** can have many **Amenities**
+- Many **Places** can have many **Amenities**
 
 **File:** 
 
@@ -90,7 +90,7 @@ A user registers a new account.
 
 ### Flow
 1. User sends `data (user)`
-2. API forwards request to Business Logic to register user
+2. API forwards request to Business Logic to transfer data to register user
 3. Business Logic saves user data in the Database
 4. Database confirms creation
 5. API returns `201 Created` response
@@ -133,29 +133,21 @@ A user creates a new place listing.
 
 3.3 Fetching a List of Places
 Use Case
-A user requests a list of all available places, potentially applying filters.
+A user requests a list of all available places.
 
 Flow
 1. User sends a Request (list of places) to the API.
-
 2. API calls the Business Logic layer to Filter Places based on criteria.
-
 3. Business Logic communicates with the Database to Fetch places.
-
-4. Database retrieves the data and sends Gather places back to the Business Logic.
-
+4. Database retrieves the data and sends return places back to the Business Logic.
 5. Business Logic processes the data and sends Return list to the API.
-
 6. API returns a Receive list (success) response to the user.
 
 ### Layers Involved
 - User
-
-- API (Place)
-
-- Business Logic (Place Service)
-
-- Database (Repository)
+- API
+- Business Logic
+- Database
 
 File: [part1/fetching sequence diagram with white bg.png](https://github.com/laradreamer79/holbertonschool-hbnb/blob/main/part1/fetching%20sequence%20diagram%20with%20white%20bg.png)
 
@@ -167,16 +159,11 @@ File: [part1/fetching sequence diagram with white bg.png](https://github.com/lar
 A user submits a review for a specific place.
 
 ### Flow
-1. User sends a Post review request to the API.
-
+1. User sends a post review request to the API.
 2. API forwards the request to the Business Logic to Create review.
-
 3. Business Logic instructs the Database to Save review.
-
 4. Database confirms the action with a Review created message.
-
 5. Business Logic confirms completion to the API by sending Return review.
-
 6. API delivers a Success response back to the user.
 
 ### Layers Involved
