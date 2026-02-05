@@ -85,7 +85,7 @@ Sequence diagrams describe how components interact over time to handle API reque
 
 ---
 
-### 3.1 User Registration Sequence Diagram
+### User Registration Sequence Diagram
 
 ### Use Case
 A user registers a new account.
@@ -109,7 +109,7 @@ A user registers a new account.
 
 ---
 
-### 3.2 Place Creation Sequence Diagram
+### Place Creation Sequence Diagram
 
 ### Use Case
 A user creates a new place listing.
@@ -133,7 +133,7 @@ A user creates a new place listing.
 
 ---
 
-3.3 Fetching a List of Places
+## Fetching a List of Places
 Use Case
 A user requests a list of all available places.
 
@@ -155,7 +155,7 @@ Flow
 
 ---
 
-## 3.4 Review Submission
+## Review Submission
 
 ### Use Case
 A user submits a review for a specific place.
