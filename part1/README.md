@@ -134,10 +134,11 @@ A user creates a new place listing.
 ---
 
 ## Fetching a List of Places
-Use Case
+
+### Use Case
 A user requests a list of all available places.
 
-Flow
+### Flow
 1. User sends a Request (list of places) to the API.
 2. API calls the Business Logic layer to Filter Places based on criteria.
 3. Business Logic communicates with the Database to Fetch places.
