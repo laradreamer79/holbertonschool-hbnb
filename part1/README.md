@@ -32,9 +32,9 @@ This project includes the following UML diagrams:
      - Review Submission
      - Fetching a List of Places
 
-   ----
+Each diagram explains a specific aspect of the system design and behavior.
 
-## Each diagram explains a specific aspect of the system design and behavior.
+   ----
 
 ## 1. Package Diagram
 
