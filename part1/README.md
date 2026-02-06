@@ -104,7 +104,7 @@ It shows entities, their attributes, methods, and relationships.
 Sequence diagrams illustrate the dynamic interaction between system components over time.  
 They show how requests flow through the Presentation, Business Logic, and Persistence layers, detailing method calls, data processing, and responses for each use case.
 
-### User Registration
+## User Registration
 
 ### Use Case
 A user registers a new account.
@@ -128,7 +128,7 @@ A user registers a new account.
 
 ---
 
-### Place Creation
+## Place Creation
 
 ### Use Case
 A user creates a new place listing.
