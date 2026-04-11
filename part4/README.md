@@ -24,8 +24,8 @@ The frontend was built with HTML, CSS, and JavaScript. The pages communicate wit
 - `logo.png`, `icon.png`, and other image files — Visual assets used in the interface
 
 ## Technologies Used
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
 - Fetch API
 - JWT authentication with cookies
