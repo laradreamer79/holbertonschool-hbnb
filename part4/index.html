@@ -1,0 +1,77 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.png">
+    <title>List of Places</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <a href="login.html" class="login-button" id="login-link">Login</a>
+        <button id="logout-btn" style="display:none;">Logout</button>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+    </nav>
+
+    <main>
+        <section class="hero-slider">
+    <div class="slides">
+        <div class="slide active">
+            <img src="alex-safareli-VpXiFTUfkdE-unsplash.jpg" alt="Travel stay">
+            <div class="slide-text">
+                <h2>Discover your next stay</h2>
+                <p>Comfort, adventure, and unforgettable travel moments.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="patrick-untersee-j3f1lwXBuAI-unsplash.jpg" alt="Remote travel">
+            <div class="slide-text">
+                <h2>Travel and stay connected</h2>
+                <p>Perfect places for work, relaxation, and exploration.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="pic-article-02.jpg" alt="Unique experience">
+            <div class="slide-text">
+                <h2>Live unique travel experiences</h2>
+                <p>From city escapes to peaceful retreats.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <div class="filter-bar">
+    <h2>Available Places</h2>
+
+    <div class="filter-box">
+        <span>Max Price</span>
+        <select id="price-filter">
+            <option value="all">All</option>
+            <option value="10">$10</option>
+            <option value="50">$50</option>
+            <option value="100">$100</option>
+        </select>
+    </div>
+</div>
+
+<section id="places-list"></section>
+
+        <section id="places-list"></section>
+    </main>
+
+    <footer>
+        <p>All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

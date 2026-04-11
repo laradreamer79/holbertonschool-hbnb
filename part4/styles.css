@@ -1,0 +1,369 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    background-color: #f7f7f7;
+    color: #222;
+
+}
+
+
+header {
+    background-color: #fff;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+nav {
+    background-color: #fff;
+    padding: 14px 32px;
+    border-bottom: 1px solid #eee;
+}
+
+nav a {
+    color: #222;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: 600;
+}
+
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 24px;
+    flex: 1;
+}
+
+.logo {
+    width: 110px;
+    height: auto;
+}
+
+.login-button,
+.details-button,
+button,
+#logout-btn {
+    display: inline-block;
+    background-color: #ff385c;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.details-button:hover,
+button:hover,
+.login-button:hover,
+#logout-btn:hover {
+    background-color: #e31c5f;
+}
+
+.form,
+#login-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    margin: 0 0 32px;
+    overflow: hidden;
+    border-radius: 24px;
+    background-color: #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    height: 420px;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background-color: #f2f2f2;
+}
+
+.slide-text {
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    background: rgba(255, 255, 255, 0.88);
+    padding: 20px 24px;
+    border-radius: 18px;
+    max-width: 420px;
+}
+
+.slide-text h2 {
+    margin-bottom: 10px;
+    font-size: 32px;
+    color: #222;
+}
+
+.slide-text p {
+    font-size: 17px;
+    color: #444;
+    line-height: 1.5;
+}
+
+#places-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-content: start;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.place-card {
+    width: 320px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.place-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.place-card-image-wrap {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.place-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.place-card-body {
+    padding: 18px;
+}
+
+.place-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.place-location {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.place-description {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.place-price {
+    margin-bottom: 14px;
+}
+
+.price-amount {
+    font-size: 28px;
+    font-weight: 800;
+    color: #111;
+}
+
+.price-unit {
+    font-size: 14px;
+    color: #666;
+    margin-left: 6px;
+}
+
+.place-details-card {
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 32px;
+}
+
+.place-details-card .place-card-image-wrap {
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+}
+
+.place-details-card .place-card-body {
+    padding: 28px;
+}
+
+.place-details-card .place-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.place-details-card .place-location {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 14px;
+}
+
+.place-details-card .place-description {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.place-details-card .price-amount {
+    font-size: 42px;
+    font-weight: 800;
+    color: #111;
+}
+
+.place-details-card .price-unit {
+    font-size: 20px;
+    color: #666;
+    margin-left: 8px;
+}
+
+#reviews {
+    margin-top: 20px;
+}
+
+#reviews h2 {
+    font-size: 32px;
+    margin-bottom: 16px;
+    color: #222;
+}
+
+.review-card {
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.stars {
+    color: #ffb400;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin: 6px 0;
+}
+
+#add-review {
+    margin: 20px;
+    padding: 20px;
+
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+#add-review h2 {
+    margin-bottom: 16px;
+    font-size: 30px;
+}
+
+footer {
+    background-color: #fff;
+    color: #222;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.filter-bar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 30px 10px;
+    padding: 0px 10px;
+}
+
+.filter-bar h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.filter-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    padding: 0px 15px;
+    border-radius: 999px;
+    border: 1px solid #e7e7e7;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    
+}
+
+.filter-box span {
+    padding: 0px 0px;
+    font-size: 14px;
+    color: #666;
+    align-items: center;
+    white-space: nowrap;
+}
+
+#price-filter {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-weight: 100;
+    cursor: pointer;
+    margin: 5px;
+    padding: 0;
+}
