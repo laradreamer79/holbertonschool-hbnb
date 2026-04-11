@@ -367,3 +367,9 @@ footer {
     margin: 5px;
     padding: 0;
 }
+
+.add-review-btn {
+    display: block;      
+    margin-top: 10px;
+    width: fit-content;
+}

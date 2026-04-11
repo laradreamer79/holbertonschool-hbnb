@@ -182,6 +182,9 @@ function displayPlaceDetails(place) {
                 <p class="place-price">
                 <span class="price-amount">$${place.price || 0}</span>
                 <span class="price-unit">per night</span>
+                <a href="add_review.html?id=${place.id}" class="login-button add-review-btn">
+                Add Review
+                </a>
                 </p>
             </div>
         `;
@@ -282,7 +285,49 @@ function displayPlaceDetails(place) {
     }
 
     const token = checkAuthentication();
+    
 
+    if (document.body.id === 'add-review-page') {
+    if (!token) {
+        window.location.href = 'index.html';
+    }
+
+    const placeId = getPlaceIdFromURL();
+    const reviewForm = document.getElementById('review-form');
+
+    reviewForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const reviewText = document.getElementById('review-text').value;
+        const rating = document.getElementById('rating').value;
+
+        try {
+            const response = await fetch('http://localhost:5000/reviews/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    text: reviewText,
+                    rating: parseInt(rating),
+                    place_id: placeId
+                })
+            });
+
+            if (response.ok) {
+                alert('Review submitted successfully!');
+                reviewForm.reset();
+            } else {
+                alert('Failed to submit review');
+            }
+
+        } catch (error) {
+            console.error(error);
+            alert('Something went wrong');
+        }
+    });
+}
     if (document.getElementById('places-list')) {
         fetchPlaces(token);
     }
