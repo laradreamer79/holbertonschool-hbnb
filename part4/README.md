@@ -57,8 +57,10 @@ The frontend communicates with the following backend endpoints:
 1. Start the backend server from Part 3.
    ```bash
    Python3 Run.py
+  
   ```
 2. Move to the `part4` directory.
+
 3. Run a local HTTP server:
    ```bash
    python3 -m http.server 8000
