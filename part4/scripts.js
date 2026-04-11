@@ -26,15 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkAuthentication() {
         const token = getCookie('token');
 
-        if (loginLink && logoutBtn) {
-            if (!token) {
-                loginLink.style.display = 'inline-block';
-                logoutBtn.style.display = 'none';
-            } else {
-                loginLink.style.display = 'none';
-                logoutBtn.style.display = 'inline-block';
-            }
+    if (loginLink) {
+        loginLink.style.display = token ? 'none' : 'inline-block';
         }
+
+    if (logoutBtn) {
+        logoutBtn.style.display = token ? 'inline-block' : 'none';
+        }
+        
         if (addReviewSection) {
             if (!token) {
                 addReviewSection.style.display = 'none';
