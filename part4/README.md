@@ -61,10 +61,9 @@ The frontend communicates with the following backend endpoints:
    python3 -m http.server 8000
    ```
    Open the browser and visit:
-   
-      ```bash
-http://localhost:8000/index.html
-```
+    http://localhost:8000/index.html
+
+
 
 Testing Statements
 
