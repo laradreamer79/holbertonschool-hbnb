@@ -1,5 +1,29 @@
 # HBnB - Part 4 Frontend
 
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Technologies Used](#technologies-used)
+- [Authentication](#authentication)
+- [API Endpoints Used](#api-endpoints-used)
+- [How to Run](#how-to-run)
+- [Testing Statements](#testing-statements)
+  - [Places List](#1-places-list)
+  - [Price Filter](#2-price-filter)
+  - [Login](#3-login)
+  - [Authentication UI](#4-authentication-ui)
+  - [Place Details](#5-place-details)
+  - [Reviews](#6-reviews)
+  - [Add Review](#7-add-review)
+  - [Logout](#8-logout)
+- [Known Limitations](#known-limitations)
+- [Future Improvements](#future-improvements)
+- [Author](#author)
+
+  
 ## Project Overview
 This part of the HBnB project focuses on the frontend interface. It connects the user-facing pages to the backend API and allows users to browse places, log in, view place details, and submit reviews.
 
@@ -74,61 +98,61 @@ The frontend communicates with the following backend endpoints:
 The following tests were performed to verify the frontend behavior:
 
 ## 1. Places List
-Verified that the frontend successfully fetches places from the API
-Confirmed that all returned places are displayed as cards
-Confirmed that each card shows the title, description, price, and a details link
+- Verified that the frontend successfully fetches places from the API
+- Confirmed that all returned places are displayed as cards
+- Confirmed that each card shows the title, description, price, and a details link
 
 ## 2. Price Filter
-Verified that changing the price filter updates the displayed places
-Confirmed that places above the selected price are hidden
-Confirmed that selecting All displays all places again
+- Verified that changing the price filter updates the displayed places
+- Confirmed that places above the selected price are hidden
+- Confirmed that selecting All displays all places again
 
 ## 3. Login
-Tested login with valid credentials and confirmed successful redirection to the home page
-Tested login with invalid credentials and confirmed that an error message appears
-Verified that the JWT token is stored in cookies after successful login
+- Tested login with valid credentials and confirmed successful redirection to the home page
+- Tested login with invalid credentials and confirmed that an error message appears
+- Verified that the JWT token is stored in cookies after successful login
 
 ## 4. Authentication UI
-Confirmed that the Login button is shown when no token exists
-Confirmed that the Logout button is shown when a token exists
-Verified that the review form is hidden from unauthenticated users
-Verified that the review form is shown for authenticated users
+- Confirmed that the Login button is shown when no token exists
+- Confirmed that the Logout button is shown when a token exists
+- Verified that the review form is hidden from unauthenticated users
+- Verified that the review form is shown for authenticated users
 
 ## 5. Place Details
-Confirmed that clicking "View Details" opens the correct place page
-Verified that the place details page displays the selected place information
-Verified that place reviews are loaded and displayed correctly
+- Confirmed that clicking "View Details" opens the correct place page
+- Verified that the place details page displays the selected place information
+- Verified that place reviews are loaded and displayed correctly
 
 ## 6. Reviews
-Confirmed that existing reviews are shown as cards using the review-card class
-Verified that each review displays:
-the review comment
-the review rating
-a user reference
-Verified that reviews are filtered correctly by place_id
+- Confirmed that existing reviews are shown as cards using the review-card class
+- Verified that each review displays:
+- the review comment
+- the review rating
+- a user reference
+- Verified that reviews are filtered correctly by place_id
 
 ## 7. Add Review
-Tested review submission as an authenticated user
-Confirmed that the review is sent to the backend successfully
-Verified that the page reloads and the new review appears after submission
-Confirmed that unauthenticated users cannot access review submission properly
+- Tested review submission as an authenticated user
+- Confirmed that the review is sent to the backend successfully
+- Verified that the page reloads and the new review appears after submission
+- Confirmed that unauthenticated users cannot access review submission properly
 
 ## 8. Logout
-Tested clicking the Logout button
-Confirmed that the token cookie is cleared
-Verified that the user is redirected to the home page
-Confirmed that the Login button appears again after logout
-Known Limitations
-User names for reviews may depend on the available API response fields
-Images for place cards are currently static/demo images unless backend image support is added
-Styling was improved for usability, but the exact final appearance can vary depending on browser rendering
+- Tested clicking the Logout button
+- Confirmed that the token cookie is cleared
+- Verified that the user is redirected to the home page
+- Confirmed that the Login button appears again after logout
+- Known Limitations
+- User names for reviews may depend on the available API response fields
+- Images for place cards are currently static/demo images unless backend image support is added
+- Styling was improved for usability, but the exact final appearance can vary depending on browser rendering
 
 ## Future Improvements
-Add dynamic images for each place
-Display host names directly from the backend response
-Improve review user display with actual usernames
-Add better responsive behavior for smaller screens
-Improve accessibility and form validation messages
+- Add dynamic images for each place
+- Display host names directly from the backend response
+- Improve review user display with actual usernames
+- Add better responsive behavior for smaller screens
+- Improve accessibility and form validation messages
 
 ## Author
 
