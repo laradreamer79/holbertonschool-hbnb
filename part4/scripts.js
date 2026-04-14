@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addReviewSection = document.getElementById('add-review');
 
     let allPlaces = [];
+    const userCache = {};
 
     function getCookie(name) {
         const cookies = document.cookie.split(';');
@@ -94,6 +95,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const place = await response.json();
+
+        if (!place.owner && !place.host && place.owner_id) {
+            try {
+                const userResponse = await fetch(`http://localhost:5000/users/${place.owner_id}`, {
+                    method: 'GET'
+                });
+
+                if (userResponse.ok) {
+                    place.owner = await userResponse.json();
+                }
+            } catch (userError) {
+                console.error('Error fetching host details:', userError);
+            }
+        }
+
         displayPlaceDetails(place);
     } catch (error) {
         console.error('Error fetching place details:', error);
@@ -114,6 +130,32 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('ALL REVIEWS:', reviews);
         console.log('CURRENT PLACE ID:', placeId);        
         const placeReviews = reviews.filter(review => review.place_id === placeId);
+
+        await Promise.all(placeReviews.map(async (review) => {
+            if (review.user || !review.user_id) {
+                return;
+            }
+
+            if (userCache[review.user_id]) {
+                review.user = userCache[review.user_id];
+                return;
+            }
+
+            try {
+                const userResponse = await fetch(`http://localhost:5000/users/${review.user_id}`, {
+                    method: 'GET'
+                });
+
+                if (userResponse.ok) {
+                    const user = await userResponse.json();
+                    userCache[review.user_id] = user;
+                    review.user = user;
+                }
+            } catch (userError) {
+                console.error('Error fetching review user details:', userError);
+            }
+        }));
+
         console.log('FILTERED REVIEWS:', placeReviews);
         displayReviews(placeReviews);
     } catch (error) {
@@ -131,9 +173,14 @@ function displayReviews(reviews) {
         reviews.forEach((review) => {
             const reviewCard = document.createElement('article');
             reviewCard.className = 'review-card';
+            const reviewUser = review.user || null;
+            const reviewerName = reviewUser
+                ? [reviewUser.first_name, reviewUser.last_name].filter(Boolean).join(' ').trim()
+                : '';
+            const reviewerDisplay = reviewerName || `User ${review.user_id.slice(0, 6)}`;
 
             reviewCard.innerHTML = `
-                <h3>User ${review.user_id.slice(0, 6)}</h3>
+                <h3>${reviewerDisplay}</h3>
                 <p class="stars">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</p>
                 <p>${review.text || 'No comment provided.'}</p>
             `;
@@ -163,6 +210,11 @@ if (slides.length > 0) {
 function displayPlaceDetails(place) {
     const placeDetails = document.getElementById('place-details');
     const reviewsSection = document.getElementById('reviews');
+    const host = place.owner || place.host || null;
+    const hostName = host
+        ? [host.first_name, host.last_name].filter(Boolean).join(' ').trim()
+        : '';
+    const hostDisplay = hostName || place.host_name || place.owner_name || place.owner_id || 'Host information unavailable';
 
     if (placeDetails) {
         placeDetails.innerHTML = `
@@ -175,6 +227,10 @@ function displayPlaceDetails(place) {
 
                 <p class="place-location">
                     📍 ${place.latitude}, ${place.longitude}
+                </p>
+
+                <p class="place-host">
+                    Host: ${hostDisplay}
                 </p>
                 
                 <p class="place-description">${place.description || 'No description available.'}</p>
@@ -319,7 +375,9 @@ function displayPlaceDetails(place) {
                 alert('Review submitted successfully!');
                 reviewForm.reset();
             } else {
-                alert('Failed to submit review');
+                const errorData = await response.text();
+                console.error('Review failed:', errorData);
+                alert('Failed to submit review: ' + errorData);
             }
 
         } catch (error) {
