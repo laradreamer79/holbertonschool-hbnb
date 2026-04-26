@@ -207,43 +207,104 @@ if (slides.length > 0) {
     }, 3000);
 }
 
+function getPlaceImages(place) {
+    if (Array.isArray(place.images) && place.images.length > 0) {
+        return place.images;
+    }
+
+    return [
+        'alex-safareli-VpXiFTUfkdE-unsplash.jpg',
+        'patrick-untersee-j3f1lwXBuAI-unsplash.jpg',
+        'pic-article-02.jpg'
+    ];
+}
+
+function setupPlaceGallery() {
+    const gallery = document.querySelector('[data-place-gallery]');
+    if (!gallery) return;
+
+    const track = gallery.querySelector('.place-gallery-track');
+    const gallerySlides = gallery.querySelectorAll('.place-gallery-slide');
+    const prevButton = gallery.querySelector('.place-gallery-arrow.prev');
+    const nextButton = gallery.querySelector('.place-gallery-arrow.next');
+
+    if (!track || gallerySlides.length === 0) return;
+
+    let currentSlide = 0;
+
+    function updateGallery() {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    if (prevButton) {
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + gallerySlides.length) % gallerySlides.length;
+            updateGallery();
+        });
+    }
+
+    if (nextButton) {
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % gallerySlides.length;
+            updateGallery();
+        });
+    }
+
+    updateGallery();
+}
+
 function displayPlaceDetails(place) {
     const placeDetails = document.getElementById('place-details');
     const reviewsSection = document.getElementById('reviews');
     const host = place.owner || place.host || null;
+    const imageSources = getPlaceImages(place);
     const hostName = host
         ? [host.first_name, host.last_name].filter(Boolean).join(' ').trim()
         : '';
     const hostDisplay = hostName || place.host_name || place.owner_name || place.owner_id || 'Host information unavailable';
 
     if (placeDetails) {
-        placeDetails.innerHTML = `
-            <div class="place-card-image-wrap">
-                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80" alt="Place image" class="place-card-image">
+        const gallerySlides = imageSources.map((imageSrc, imageIndex) => `
+            <div class="place-gallery-slide">
+                <img src="${imageSrc}" alt="${place.title || place.name || 'Place'} image ${imageIndex + 1}" class="place-card-image">
             </div>
+        `).join('');
 
-            <div class="place-card-body">
-                <h3 class="place-title">${place.title || place.name || 'Place'}</h3>
+        placeDetails.innerHTML = `
+            <div class="place-details-card">
+                <div class="place-card-image-wrap" data-place-gallery>
+                    <div class="place-gallery-track">
+                        ${gallerySlides}
+                    </div>
+                    <button type="button" class="place-gallery-arrow prev" aria-label="Previous image">‹</button>
+                    <button type="button" class="place-gallery-arrow next" aria-label="Next image">›</button>
+                </div>
 
-                <p class="place-location">
-                    📍 ${place.latitude}, ${place.longitude}
-                </p>
+                <div class="place-card-body">
+                    <h3 class="place-title">${place.title || place.name || 'Place'}</h3>
 
-                <p class="place-host">
-                    Host: ${hostDisplay}
-                </p>
-                
-                <p class="place-description">${place.description || 'No description available.'}</p>
+                    <p class="place-location">
+                        📍 ${place.latitude}, ${place.longitude}
+                    </p>
 
-                <p class="place-price">
-                <span class="price-amount">$${place.price || 0}</span>
-                <span class="price-unit">per night</span>
-                <a href="add_review.html?id=${place.id}" class="login-button add-review-btn">
-                Add Review
-                </a>
-                </p>
+                    <p class="place-host">
+                        Host: ${hostDisplay}
+                    </p>
+                    
+                    <p class="place-description">${place.description || 'No description available.'}</p>
+
+                    <p class="place-price">
+                    <span class="price-amount">$${place.price || 0}</span>
+                    <span class="price-unit">per night</span>
+                    <a href="add_review.html?id=${place.id}" class="login-button add-review-btn">
+                    Add Review
+                    </a>
+                    </p>
+                </div>
             </div>
         `;
+
+        setupPlaceGallery();
     }
 
     if (placeDetails && place.amenities && place.amenities.length > 0) {
