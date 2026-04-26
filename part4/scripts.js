@@ -200,6 +200,30 @@ const slides = document.querySelectorAll('.slide');
 
 let index = 0;
 
+const availablePlaceImages = [
+    'alex-safareli-VpXiFTUfkdE-unsplash.jpg',
+    'allison-huang-_u8KhAZRGHs-unsplash.jpg',
+    'andy-abelein-MNkxGKSlVy8-unsplash.jpg',
+    'atman-studios-UPolqOrkbno-unsplash.jpg',
+    'clint-patterson-b0dCy17Zaoo-unsplash.jpg',
+    'derek-liang-OWyMoFrzj3o-unsplash.jpg',
+    'joshua-patterson-N6y7e4lTijg-unsplash.jpg',
+    'josue-munilla-FqXYIevdhV4-unsplash.jpg',
+    'kevin-doran-NdgNVPB0DT0-unsplash.jpg',
+    'mohd-elle-oji_NGmBI5o-unsplash.jpg',
+    'patrick-untersee-j3f1lwXBuAI-unsplash.jpg',
+    'pic-article-02.jpg',
+    'rayyu-maldives-6cQ9E0AbwOo-unsplash.jpg',
+    'rich-brents-kwMhr2PW9zw-unsplash.jpg',
+    'roberto-nickson-YG2MysGbT_M-unsplash.jpg',
+    'roberto-nickson-b650UcXvYUk-unsplash.jpg',
+    'sandra-seitamaa-aerb5gwZ4vg-unsplash.jpg',
+    'serjan-midili-8SuNIFnfKZY-unsplash.jpg',
+    'sho-k-et0v7wY9meI-unsplash.jpg',
+    'spencer-watson-jG1qamY6TGw-unsplash.jpg',
+    'stefano-bucciarelli-Oo_GSNAtF20-unsplash.jpg'
+];
+
 if (slides.length > 0) {
     setInterval(() => {
         index = (index + 1) % slides.length;
@@ -212,11 +236,17 @@ function getPlaceImages(place) {
         return place.images;
     }
 
-    return [
-        'alex-safareli-VpXiFTUfkdE-unsplash.jpg',
-        'patrick-untersee-j3f1lwXBuAI-unsplash.jpg',
-        'pic-article-02.jpg'
-    ];
+    const placeSeed = String(place.id || place.title || place.name || 'place');
+    const startIndex = Array.from(placeSeed).reduce((total, char) => total + char.charCodeAt(0), 0) % availablePlaceImages.length;
+    const gallerySize = Math.min(4, availablePlaceImages.length);
+
+    return Array.from({ length: gallerySize }, (_, offset) => {
+        return availablePlaceImages[(startIndex + offset) % availablePlaceImages.length];
+    });
+}
+
+function getPrimaryPlaceImage(place) {
+    return getPlaceImages(place)[0];
 }
 
 function setupPlaceGallery() {
@@ -368,12 +398,13 @@ function displayPlaceDetails(place) {
         places.forEach((place) => {
             const placeCard = document.createElement('article');
             placeCard.className = 'place-card';
+            const placeImage = getPrimaryPlaceImage(place);
 
             placeCard.setAttribute('data-price', place.price || 0);
 
             placeCard.innerHTML = `
     <div class="place-card-image-wrap">
-        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80" class="place-card-image">
+        <img src="${placeImage}" alt="${place.title || 'Place'}" class="place-card-image">
     </div>
 
     <div class="place-card-body">
