@@ -253,6 +253,43 @@ function setupPlaceGallery() {
     updateGallery();
 }
 
+function setupRatingStars() {
+    const ratingGroups = document.querySelectorAll('[data-rating-stars]');
+
+    ratingGroups.forEach((group) => {
+        const ratingInput = group.querySelector('#rating');
+        const stars = group.querySelectorAll('.rating-star');
+
+        if (!ratingInput || stars.length === 0) return;
+
+        function paintStars(ratingValue) {
+            const selectedValue = parseInt(ratingValue, 10) || 0;
+
+            stars.forEach((star) => {
+                const starValue = parseInt(star.dataset.value, 10);
+                star.classList.toggle('is-active', starValue <= selectedValue);
+            });
+        }
+
+        stars.forEach((star) => {
+            star.addEventListener('mouseenter', () => {
+                paintStars(star.dataset.value);
+            });
+
+            star.addEventListener('click', () => {
+                ratingInput.value = star.dataset.value;
+                paintStars(ratingInput.value);
+            });
+        });
+
+        group.addEventListener('mouseleave', () => {
+            paintStars(ratingInput.value);
+        });
+
+        paintStars(ratingInput.value);
+    });
+}
+
 function displayPlaceDetails(place) {
     const placeDetails = document.getElementById('place-details');
     const reviewsSection = document.getElementById('reviews');
@@ -402,6 +439,7 @@ function displayPlaceDetails(place) {
     }
 
     const token = checkAuthentication();
+    setupRatingStars();
     
 
     if (document.body.id === 'add-review-page') {

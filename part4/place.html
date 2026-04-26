@@ -34,15 +34,15 @@
                 <label for="review-text">Review:</label>
                 <textarea id="review-text" name="review-text" required></textarea>
 
-                <label for="rating">Rating:</label>
-                <select id="rating" name="rating" required>
-                    <option value="">Select rating</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+                <label>Rating:</label>
+                <div class="rating-stars" data-rating-stars>
+                    <input type="hidden" id="rating" name="rating" required>
+                    <button type="button" class="rating-star" data-value="1" aria-label="1 star">★</button>
+                    <button type="button" class="rating-star" data-value="2" aria-label="2 stars">★</button>
+                    <button type="button" class="rating-star" data-value="3" aria-label="3 stars">★</button>
+                    <button type="button" class="rating-star" data-value="4" aria-label="4 stars">★</button>
+                    <button type="button" class="rating-star" data-value="5" aria-label="5 stars">★</button>
+                </div>
 
                 <button type="submit">Submit</button>
             </form>            

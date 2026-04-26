@@ -91,6 +91,40 @@ textarea {
     resize: vertical;
 }
 
+.rating-stars {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.rating-star {
+    appearance: none;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    color: #d0d0d0;
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+    min-width: auto;
+}
+
+.rating-star:hover,
+.rating-star.is-active {
+    color: #ffb400;
+    background: transparent;
+}
+
+.rating-star:focus,
+.rating-star:active {
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+}
+
 .hero-slider {
     position: relative;
     width: 100%;
