@@ -45,7 +45,7 @@ The frontend was built with HTML, CSS, and JavaScript. The pages communicate wit
 - `add_review.html` — Review submission page
 - `scripts.js` — JavaScript logic for API requests, authentication, filtering, and rendering
 - `styles.css` — Styling for the frontend pages
-- `logo.png`, `icon.png`, and other image files — Visual assets used in the interface
+- `images/` — Visual assets used in the interface
 
 ## Technologies Used
 - HTML

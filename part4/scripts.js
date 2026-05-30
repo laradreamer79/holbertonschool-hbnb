@@ -19,13 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
         return null;
     }
 
+    function getAuthToken() {
+        return getCookie('token') || localStorage.getItem('token');
+    }
+
+    function saveAuthToken(token) {
+        document.cookie = `token=${token}; path=/`;
+        localStorage.setItem('token', token);
+    }
+
+    function clearAuthToken() {
+        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        localStorage.removeItem('token');
+    }
+
     function getPlaceIdFromURL() {
         const params = new URLSearchParams(window.location.search);
         return params.get('id');
     }    
 
     function checkAuthentication() {
-        const token = getCookie('token');
+        const token = getAuthToken();
 
     if (loginLink) {
         loginLink.style.display = token ? 'none' : 'inline-block';
@@ -47,7 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (logoutBtn) {
             logoutBtn.addEventListener('click', () => {
-                document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                clearAuthToken();
+                checkAuthentication();
                 window.location.href = 'index.html';
             });
         }
@@ -201,43 +216,55 @@ const slides = document.querySelectorAll('.slide');
 let index = 0;
 
 const availablePlaceImages = [
-    'alex-safareli-VpXiFTUfkdE-unsplash.jpg',
-    'allison-huang-_u8KhAZRGHs-unsplash.jpg',
-    'andy-abelein-MNkxGKSlVy8-unsplash.jpg',
-    'atman-studios-UPolqOrkbno-unsplash.jpg',
-    'clint-patterson-b0dCy17Zaoo-unsplash.jpg',
-    'derek-liang-OWyMoFrzj3o-unsplash.jpg',
-    'joshua-patterson-N6y7e4lTijg-unsplash.jpg',
-    'josue-munilla-FqXYIevdhV4-unsplash.jpg',
-    'kevin-doran-NdgNVPB0DT0-unsplash.jpg',
-    'mohd-elle-oji_NGmBI5o-unsplash.jpg',
-    'patrick-untersee-j3f1lwXBuAI-unsplash.jpg',
-    'pic-article-02.jpg',
-    'rayyu-maldives-6cQ9E0AbwOo-unsplash.jpg',
-    'rich-brents-kwMhr2PW9zw-unsplash.jpg',
-    'roberto-nickson-YG2MysGbT_M-unsplash.jpg',
-    'roberto-nickson-b650UcXvYUk-unsplash.jpg',
-    'sandra-seitamaa-aerb5gwZ4vg-unsplash.jpg',
-    'serjan-midili-8SuNIFnfKZY-unsplash.jpg',
-    'sho-k-et0v7wY9meI-unsplash.jpg',
-    'spencer-watson-jG1qamY6TGw-unsplash.jpg',
-    'stefano-bucciarelli-Oo_GSNAtF20-unsplash.jpg'
+    'images/allison-huang-_u8KhAZRGHs-unsplash.jpg',
+    'images/andy-abelein-MNkxGKSlVy8-unsplash.jpg',
+    'images/atman-studios-UPolqOrkbno-unsplash.jpg',
+    'images/clint-patterson-b0dCy17Zaoo-unsplash.jpg',
+    'images/derek-liang-OWyMoFrzj3o-unsplash.jpg',
+    'images/joshua-patterson-N6y7e4lTijg-unsplash.jpg',
+    'images/josue-munilla-FqXYIevdhV4-unsplash.jpg',
+    'images/kevin-doran-NdgNVPB0DT0-unsplash.jpg',
+    'images/mohd-elle-oji_NGmBI5o-unsplash.jpg',
+    'images/roberto-nickson-b650UcXvYUk-unsplash.jpg',
+    'images/rich-brents-kwMhr2PW9zw-unsplash.jpg',
+    'images/roberto-nickson-YG2MysGbT_M-unsplash.jpg',
+    'images/roberto-nickson-b650UcXvYUk-unsplash.jpg',
+    'images/sandra-seitamaa-aerb5gwZ4vg-unsplash.jpg',
+    'images/serjan-midili-8SuNIFnfKZY-unsplash.jpg',
+    'images/sho-k-et0v7wY9meI-unsplash.jpg',
+    'images/spencer-watson-jG1qamY6TGw-unsplash.jpg',
+    'images/stefano-bucciarelli-Oo_GSNAtF20-unsplash.jpg'
 ];
 
-if (slides.length > 0) {
+if (slidesContainer && slides.length > 0) {
+    const firstSlideClone = slides[0].cloneNode(true);
+    slidesContainer.appendChild(firstSlideClone);
+
     setInterval(() => {
-        index = (index + 1) % slides.length;
+        index += 1;
+        slidesContainer.style.transition = 'transform 0.6s ease-in-out';
         slidesContainer.style.transform = `translateX(-${index * 100}%)`;
     }, 3000);
+
+    slidesContainer.addEventListener('transitionend', () => {
+        if (index === slides.length) {
+            slidesContainer.style.transition = 'none';
+            index = 0;
+            slidesContainer.style.transform = 'translateX(0)';
+        }
+    });
 }
 
-function getPlaceImages(place) {
+function getPlaceImages(place, preferredStartIndex = null) {
     if (Array.isArray(place.images) && place.images.length > 0) {
-        return place.images;
+        return [...new Set(place.images)];
     }
 
     const placeSeed = String(place.id || place.title || place.name || 'place');
-    const startIndex = Array.from(placeSeed).reduce((total, char) => total + char.charCodeAt(0), 0) % availablePlaceImages.length;
+    const seedIndex = Array.from(placeSeed).reduce((total, char) => total + char.charCodeAt(0), 0) % availablePlaceImages.length;
+    const startIndex = preferredStartIndex === null
+        ? seedIndex
+        : preferredStartIndex % availablePlaceImages.length;
     const gallerySize = Math.min(4, availablePlaceImages.length);
 
     return Array.from({ length: gallerySize }, (_, offset) => {
@@ -245,8 +272,8 @@ function getPlaceImages(place) {
     });
 }
 
-function getPrimaryPlaceImage(place) {
-    return getPlaceImages(place)[0];
+function getPrimaryPlaceImage(place, preferredStartIndex = null) {
+    return getPlaceImages(place, preferredStartIndex)[0];
 }
 
 function setupPlaceGallery() {
@@ -395,10 +422,10 @@ function displayPlaceDetails(place) {
         const placesList = document.getElementById('places-list');
         if (!placesList) return;
 
-        places.forEach((place) => {
+        places.forEach((place, placeIndex) => {
             const placeCard = document.createElement('article');
             placeCard.className = 'place-card';
-            const placeImage = getPrimaryPlaceImage(place);
+            const placeImage = getPrimaryPlaceImage(place, placeIndex);
 
             placeCard.setAttribute('data-price', place.price || 0);
 
@@ -457,8 +484,15 @@ function displayPlaceDetails(place) {
 
                 if (response.ok) {
                     const data = await response.json();
-                    document.cookie = `token=${data.access_token}; path=/`;
-                    window.location.href = 'index.html';
+                    const token = data.access_token || data.token;
+
+                    if (token) {
+                        saveAuthToken(token);
+                        checkAuthentication();
+                        window.location.href = 'index.html';
+                    } else {
+                        alert('Login failed: Missing authentication token.');
+                    }
                 } else {
                     alert('Login failed: Invalid email or password.');
                 }
