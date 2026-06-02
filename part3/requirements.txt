@@ -4,4 +4,5 @@ sqlalchemy
 Flask-SQLAlchemy
 flask-bcrypt
 flask-jwt-extended
+Flask-Cors
 gunicorn
