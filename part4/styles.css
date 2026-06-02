@@ -15,8 +15,7 @@ html, body {
 header {
     background-color: #fff;
     padding: 8px 32px;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    display: flex;
     align-items: center;
     gap: 28px;
     border-bottom: 1px solid #eee;
@@ -25,7 +24,6 @@ header {
 .header-nav {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 18px;
 }
 
@@ -44,6 +42,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-left: auto;
 }
 
 .page-hero {
@@ -623,19 +622,18 @@ footer {
 @media (max-width: 768px) {
     header {
         padding: 8px 16px;
-        grid-template-columns: 1fr auto;
         gap: 16px;
+        flex-wrap: wrap;
     }
 
     .header-nav {
-        grid-column: 1 / -1;
+        order: 3;
         width: 100%;
-        justify-content: center;
         gap: 14px;
     }
 
     .header-actions {
-        justify-content: flex-end;
+        margin-left: auto;
     }
 
     .brand {
