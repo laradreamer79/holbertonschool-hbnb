@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let allPlaces = [];
     const userCache = {};
+    const API_BASE_URL = '';
 
     function getCookie(name) {
         const cookies = document.cookie.split(';');
@@ -67,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     async function loginUser(email, password) {
-        const response = await fetch('http://localhost:5000/auth/login', {
+        const response = await fetch(`${API_BASE_URL}/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -81,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchPlaces(token) {
         try {
 
-            const response = await fetch('http://localhost:5000/places/', {
+            const response = await fetch(`${API_BASE_URL}/places/`, {
                 method: 'GET',
             });
 
@@ -101,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
         console.log('MY APP - Fetching place details for:', placeId);
 
-        const response = await fetch(`http://localhost:5000/places/${placeId}`, {
+        const response = await fetch(`${API_BASE_URL}/places/${placeId}`, {
             method: 'GET'
         });
 
@@ -113,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!place.owner && !place.host && place.owner_id) {
             try {
-                const userResponse = await fetch(`http://localhost:5000/users/${place.owner_id}`, {
+                const userResponse = await fetch(`${API_BASE_URL}/users/${place.owner_id}`, {
                     method: 'GET'
                 });
 
@@ -133,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchReviews(placeId) {
     try {
-        const response = await fetch('http://localhost:5000/reviews/', {
+        const response = await fetch(`${API_BASE_URL}/reviews/`, {
             method: 'GET'
         });
 
@@ -157,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
-                const userResponse = await fetch(`http://localhost:5000/users/${review.user_id}`, {
+                const userResponse = await fetch(`${API_BASE_URL}/users/${review.user_id}`, {
                     method: 'GET'
                 });
 
@@ -522,7 +523,7 @@ function displayPlaceDetails(place) {
         const rating = document.getElementById('rating').value;
 
         try {
-            const response = await fetch('http://localhost:5000/reviews/', {
+            const response = await fetch(`${API_BASE_URL}/reviews/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -573,7 +574,7 @@ function displayPlaceDetails(place) {
             const rating = document.getElementById('rating').value;
 
             try {
-                const response = await fetch('http://localhost:5000/reviews/', {
+                const response = await fetch(`${API_BASE_URL}/reviews/`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
